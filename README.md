@@ -1,6 +1,6 @@
 # Orçamento Voz AI
 
-API de orçamento pessoal que entende comandos de voz usando IA (Spring AI + OpenAI) e executa ações reais de criação/consulta de transações financeiras.
+API de orçamento pessoal que entende comandos de voz usando IA (Spring AI + Groq) e executa ações reais de criação/consulta de transações financeiras.
 
 ## O que o projeto faz
 
@@ -17,7 +17,7 @@ Fluxo principal:
 
 - Java 17
 - Spring Boot 3.3
-- Spring AI 1.0 (ChatClient, Tool Calling, Audio Transcription)
+- Spring AI 1.0 (ChatClient, Tool Calling, Audio Transcription) — usando o Groq como provedor de IA, via API compatível com OpenAI
 - Spring Data JPA + H2 (banco em memória)
 - Maven
 
@@ -25,8 +25,8 @@ Fluxo principal:
 
 ### 1. Pré-requisitos
 - Java 17+
-- Uma chave de API da OpenAI (https://platform.openai.com)
-
+- Uma chave de API do Groq (https://console.groq.com) — gratuita, sem necessidade de cartão de crédito
+  
 ### 2. Configurar a chave da API
 Este projeto usa o [Groq](https://console.groq.com) como provedor de IA — é gratuito e não exige cartão de crédito. A API do Groq é compatível com o formato da OpenAI, então o Spring AI funciona sem alterações no código, só na configuração.
 
