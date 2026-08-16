@@ -1,0 +1,43 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: orcamento-voz-ai
+
+  datasource:
+    url: jdbc:h2:mem:orcamento
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  # A chave nunca deve ficar hardcoded aqui.
+  # Configure a variavel de ambiente OPENAI_API_KEY antes de rodar a aplicacao.
+  ai:
+    openai:
+      api-key: ${GROQ_API_KEY}
+      base-url: https://api.groq.com/openai
+      chat:
+        options:
+          model: llama-3.3-70b-versatile
+      audio:
+        transcription:
+          options:
+            model: whisper-large-v3
+
+logging:
+  level:
+    com.dio.orcamentovoz: DEBUG
